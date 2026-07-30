@@ -1,0 +1,75 @@
+:root {
+  --stm-accent: #00a8c6;
+}
+
+.md-header {
+  background: linear-gradient(90deg, #162a63, #2456a6);
+}
+
+.hero {
+  padding: 2.4rem 2rem;
+  margin: 0 0 1.5rem;
+  border-radius: 1rem;
+  color: #fff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(0, 210, 225, .3), transparent 28%),
+    linear-gradient(135deg, #14224d 0%, #1f4d9d 62%, #087f9a 100%);
+  box-shadow: 0 12px 34px rgba(20, 45, 95, .2);
+}
+
+.hero h1 { color: #fff; margin: 0 0 .5rem; font-weight: 750; }
+.hero p { max-width: 42rem; font-size: 1.05rem; opacity: .92; }
+.hero .md-button { margin: .35rem .5rem .2rem 0; }
+.hero .md-button:not(.md-button--primary) { color: #fff; border-color: rgba(255,255,255,.7); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.card {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .75rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 5px 18px rgba(30, 50, 90, .06);
+}
+
+.card h3 { margin-top: .1rem; }
+
+.lesson-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .65rem;
+  padding: .9rem 1rem;
+  margin: 1.2rem 0;
+  border-left: .25rem solid var(--stm-accent);
+  border-radius: .35rem;
+  background: color-mix(in srgb, var(--stm-accent) 8%, var(--md-default-bg-color));
+}
+
+.lesson-progress button,
+.progress-panel button,
+.progress-panel .import-label {
+  padding: .45rem .75rem;
+  border: 0;
+  border-radius: .35rem;
+  color: #fff;
+  background: #2456a6;
+  cursor: pointer;
+  font: inherit;
+}
+
+.lesson-progress button.is-complete { background: #168263; }
+.progress-panel { padding: .8rem 1rem; margin: 1rem 0; border-radius: .6rem; background: var(--md-code-bg-color); }
+.progress-panel__actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .65rem; }
+.progress-panel input[type="file"] { display: none; }
+.progress-message { min-height: 1.4em; color: var(--md-default-fg-color--light); }
+
+@media (max-width: 600px) {
+  .hero { padding: 1.5rem 1.2rem; }
+}
+

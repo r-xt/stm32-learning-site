@@ -1,0 +1,106 @@
+site_name: STM32 学习站
+site_description: 从第一个工程到可靠嵌入式系统的本地学习路径
+site_url: https://r-xt.github.io/stm32-learning-site/
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+strict: true
+
+theme:
+  name: material
+  language: zh
+  font: false
+  icon:
+    logo: material/chip
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - privacy:
+      log_level: error
+  - offline
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/progress.js
+
+copyright: 本地学习站 · 内容以对应芯片的最新官方文档为准
+
+nav:
+  - 首页: index.md
+  - 开始学习:
+      - 学习入口: getting-started/index.md
+      - 01 · 环境搭建: getting-started/environment.md
+      - 02 · 第一个工程: getting-started/first-project.md
+  - 入门课程:
+      - 课程说明: courses/index.md
+      - 03 · GPIO 输入输出: courses/gpio.md
+      - 04 · EXTI 外部中断: courses/exti.md
+      - 05 · UART 串口通信: courses/uart.md
+      - 06 · TIM 与 PWM: courses/tim-pwm.md
+  - 学习路线:
+      - 路线总览: tracks/index.md
+      - 入门: tracks/beginner.md
+      - 进阶: tracks/advanced.md
+      - 专家: tracks/expert.md
+      - 大师: tracks/master.md
+  - 板卡与工具:
+      - 板卡选择: boards/index.md
+      - 开发工具: boards/tools.md
+  - 项目实战:
+      - 项目索引: projects/index.md
+      - LED 与按键控制器: projects/led-button.md
+      - 串口命令行终端: projects/uart-console.md
+  - 资源中心: resources/index.md
+  - 维护:
+      - 课程模板: about/lesson-template.md
+      - 维护说明: about/maintenance.md
