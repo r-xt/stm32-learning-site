@@ -107,6 +107,38 @@ nav:
       - 项目 1 · LED 与按键控制器: projects/led-button.md
       - 项目 2 · 串口命令行终端: projects/uart-console.md
       - 项目 3 · 多外设数据记录器: projects/data-logger.md
+  - 核心板实验:
+      - 实验总览: experiments/index.md
+      - 工程、GPIO 与中断:
+          - 01 · 库函数模板创建: experiments/01-library-template.md
+          - 02 · 库函数点亮 LED: experiments/02-led-on.md
+          - 03 · STM32 时钟系统: experiments/03-clock-system.md
+          - 04 · LED 与位带操作: experiments/04-bit-band-led.md
+          - 05 · SysTick 定时器: experiments/05-systick.md
+          - 06 · 蜂鸣器: experiments/06-buzzer.md
+          - 07 · 数码管显示: experiments/07-seven-segment.md
+          - 08 · 按键控制: experiments/08-key-control.md
+          - 09 · 外部中断: experiments/09-exti.md
+      - 定时、通信与可靠性:
+          - 10 · 定时器中断: experiments/10-timer-interrupt.md
+          - 11 · PWM 呼吸灯: experiments/11-pwm-breathing-led.md
+          - 12 · USART 串口通信: experiments/12-usart.md
+          - 13 · printf 重定向: experiments/13-printf-retarget.md
+          - 14 · 独立看门狗: experiments/14-iwdg.md
+          - 15 · 窗口看门狗: experiments/15-wwdg.md
+          - 16 · 定时器输入捕获: experiments/16-input-capture.md
+          - 17 · 待机与唤醒: experiments/17-standby-wakeup.md
+      - 采集、存储与总线:
+          - 18 · ADC 模数转换: experiments/18-adc.md
+          - 19 · 内部温度传感器: experiments/19-internal-temperature.md
+          - 20 · DMA 传输: experiments/20-dma.md
+          - 21 · RTC 实时时钟: experiments/21-rtc.md
+          - 22 · I²C EEPROM: experiments/22-i2c-eeprom.md
+          - 23 · DS18B20 温度传感器: experiments/23-ds18b20.md
+          - 24 · 红外遥控: experiments/24-infrared-remote.md
+          - 25 · RS485 通信: experiments/25-rs485.md
+          - 26 · CAN 通信: experiments/26-can.md
+          - 27 · 芯片 UID 与程序绑定: experiments/27-uid-binding.md
   - 技术文章:
       - 文章首页: articles/index.md
       - STM32F103C8T6 常见问题: articles/stm32f103c8t6-common-problems.md

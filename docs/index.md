@@ -96,6 +96,30 @@ hide:
 
 [查看全部技术文章](articles/index.md){ .md-button }
 
+## 核心板基础实验
+
+<div class="assistant-intro" markdown>
+
+<div markdown>
+
+### 27 个实验，27 篇独立操作文章
+
+从标准外设库模板、GPIO 和中断开始，逐步完成 PWM、串口、看门狗、ADC、DMA、RTC、EEPROM、DS18B20、RS485 和 CAN。每篇文章都根据原始 Keil 工程核对实际引脚、操作步骤、预期现象、常见故障和专业名词。
+
+[开始核心板实验](experiments/index.md){ .md-button .md-button--primary }
+
+</div>
+
+<div class="assistant-intro__status" markdown>
+
+**型号提醒**
+
+实验 1 面向 STM32F103C8；实验 2–27 的原始工程实际面向 STM32F103ZE。栏目会逐页提醒，避免直接混用启动文件、存储配置和引脚。
+
+</div>
+
+</div>
+
 ## 第一阶段课程
 
 ```mermaid

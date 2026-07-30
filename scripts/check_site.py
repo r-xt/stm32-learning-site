@@ -11,6 +11,37 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 SITE = ROOT / "site"
 
+EXPERIMENT_PAGES = [
+    "experiments/index.md",
+    "experiments/01-library-template.md",
+    "experiments/02-led-on.md",
+    "experiments/03-clock-system.md",
+    "experiments/04-bit-band-led.md",
+    "experiments/05-systick.md",
+    "experiments/06-buzzer.md",
+    "experiments/07-seven-segment.md",
+    "experiments/08-key-control.md",
+    "experiments/09-exti.md",
+    "experiments/10-timer-interrupt.md",
+    "experiments/11-pwm-breathing-led.md",
+    "experiments/12-usart.md",
+    "experiments/13-printf-retarget.md",
+    "experiments/14-iwdg.md",
+    "experiments/15-wwdg.md",
+    "experiments/16-input-capture.md",
+    "experiments/17-standby-wakeup.md",
+    "experiments/18-adc.md",
+    "experiments/19-internal-temperature.md",
+    "experiments/20-dma.md",
+    "experiments/21-rtc.md",
+    "experiments/22-i2c-eeprom.md",
+    "experiments/23-ds18b20.md",
+    "experiments/24-infrared-remote.md",
+    "experiments/25-rs485.md",
+    "experiments/26-can.md",
+    "experiments/27-uid-binding.md",
+]
+
 REQUIRED = [
     "index.md",
     "assistant/index.md",
@@ -38,7 +69,7 @@ REQUIRED = [
     "articles/computer-learning-creators.md",
     "resources/index.md",
     "resources/f103-official-docs.md",
-]
+] + EXPERIMENT_PAGES
 
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 LESSON_RE = re.compile(r'data-lesson-id="([^"]+)"')
@@ -166,6 +197,17 @@ def main() -> int:
         if text.count("https://") < 3:
             errors.append(f"Article has too few traceable sources: docs/{relative}")
 
+    for relative in EXPERIMENT_PAGES[1:]:
+        text = (DOCS / relative).read_text(encoding="utf-8")
+        if "操作步骤" not in text:
+            errors.append(f"Experiment operation steps missing: docs/{relative}")
+        if "## 常见问题" not in text:
+            errors.append(f"Experiment troubleshooting missing: docs/{relative}")
+        if "## 专业名词" not in text:
+            errors.append(f"Experiment glossary missing: docs/{relative}")
+        if "https://www.st.com/" not in text:
+            errors.append(f"Experiment official ST reference missing: docs/{relative}")
+
     if not (SITE / "index.html").is_file():
         errors.append("Offline homepage missing: site/index.html")
     if not any(SITE.glob("search/search_index.*")):
@@ -224,7 +266,7 @@ def main() -> int:
         "resources/f103-official-docs.html",
         "about/lesson-template.html",
         "about/maintenance.html",
-    ]
+    ] + [page.replace(".md", ".html") for page in EXPERIMENT_PAGES]
     for relative in built_pages:
         if not (SITE / relative).is_file():
             errors.append(f"Built page missing: site/{relative}")
