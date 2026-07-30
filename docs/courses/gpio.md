@@ -94,7 +94,16 @@ else
 - 同时读取两个按键，做一个简单的优先级逻辑。
 - 不改业务代码，只调整 `.ioc` 的初始电平，让复位后的 LED 保持熄灭。
 
+## 官方资料与核对路径
+
+| 文档 | 建议核对内容 |
+|---|---|
+| [DS5319 · STM32F103x8/xB Data Sheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf) | `Pinouts and pin description`、复用功能和 I/O 电气特性 |
+| [RM0008 · STM32F1 Reference Manual](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) | `General-purpose and alternate-function I/Os`、AFIO |
+| [AN4899 · GPIO hardware settings](https://www.st.com/resource/en/application_note/dm00315319-stm32-gpio-configuration-for-hardware-settings-and-low-power-consumption-stmicroelectronics.pdf) | 输入状态、输出类型、未使用引脚和低功耗配置 |
+
+文档职责和版本核验方法见 [F103C8T6 官方资料索引](../resources/f103-official-docs.md)。
+
 ## 下一步
 
 [让按键通过中断触发事件 →](exti.md)
-

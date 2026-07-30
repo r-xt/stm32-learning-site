@@ -13,12 +13,16 @@ SITE = ROOT / "site"
 
 REQUIRED = [
     "index.md",
+    "assistant/index.md",
     "getting-started/environment.md",
     "getting-started/first-project.md",
     "courses/gpio.md",
     "courses/exti.md",
     "courses/uart.md",
     "courses/tim-pwm.md",
+    "courses/adc-dma.md",
+    "courses/i2c.md",
+    "courses/spi.md",
     "tracks/beginner.md",
     "tracks/advanced.md",
     "tracks/expert.md",
@@ -27,7 +31,9 @@ REQUIRED = [
     "boards/tools.md",
     "projects/led-button.md",
     "projects/uart-console.md",
+    "projects/data-logger.md",
     "resources/index.md",
+    "resources/f103-official-docs.md",
 ]
 
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
@@ -89,10 +95,60 @@ def main() -> int:
         "exti-001",
         "uart-001",
         "tim-pwm-001",
+        "adc-dma-001",
+        "i2c-001",
+        "spi-001",
+        "project-led-button",
+        "project-uart-console",
+        "project-data-logger",
     }
     missing_ids = expected_lessons - set(lesson_ids)
     if missing_ids:
         errors.append("Missing lesson progress IDs: " + ", ".join(sorted(missing_ids)))
+
+    expected_order = [
+        "environment-001",
+        "first-project-001",
+        "gpio-001",
+        "exti-001",
+        "uart-001",
+        "tim-pwm-001",
+        "adc-dma-001",
+        "i2c-001",
+        "spi-001",
+        "project-led-button",
+        "project-uart-console",
+        "project-data-logger",
+    ]
+    progress_script = (DOCS / "assets/javascripts/progress.js").read_text(encoding="utf-8")
+    actual_order = re.findall(r'\{ id: "([^"]+)"', progress_script)
+    if actual_order != expected_order:
+        errors.append("Progress catalog order does not match the canonical 01-09 then projects sequence")
+
+    source_pages = [
+        "getting-started/environment.md",
+        "getting-started/first-project.md",
+        "courses/gpio.md",
+        "courses/exti.md",
+        "courses/uart.md",
+        "courses/tim-pwm.md",
+        "courses/adc-dma.md",
+        "courses/i2c.md",
+        "courses/spi.md",
+    ]
+    for relative in source_pages:
+        text = (DOCS / relative).read_text(encoding="utf-8")
+        if "## 官方资料与核对路径" not in text:
+            errors.append(f"Official source section missing: docs/{relative}")
+
+    source_index = (DOCS / "resources/f103-official-docs.md").read_text(encoding="utf-8")
+    assistant_data = (DOCS / "assets/javascripts/assistant-data.js").read_text(encoding="utf-8")
+    required_documents = {"DS5319", "RM0008", "PM0056", "ES096"}
+    for document_id in required_documents:
+        if document_id not in source_index:
+            errors.append(f"Required official document missing from source index: {document_id}")
+    if assistant_data.count("https://www.st.com/") < 10:
+        errors.append("Assistant knowledge base has too few traceable ST official links")
 
     if not (SITE / "index.html").is_file():
         errors.append("Offline homepage missing: site/index.html")
@@ -100,6 +156,10 @@ def main() -> int:
         errors.append("Search index missing")
     if not list(SITE.rglob("progress.js")):
         errors.append("Progress script missing from built site")
+    if not list(SITE.rglob("assistant-data.js")):
+        errors.append("Assistant knowledge base missing from built site")
+    if not list(SITE.rglob("assistant.js")):
+        errors.append("Assistant script missing from built site")
 
     for html_file in SITE.rglob("*.html"):
         if html_file.name == "404.html":
@@ -109,6 +169,9 @@ def main() -> int:
         for reference in parser.assets:
             if reference.startswith(("data:", "#")):
                 continue
+            if reference == "https://unpkg.com/iframe-worker/shim":
+                # Injected by Material's offline plugin so search can run from file://.
+                continue
             if reference.startswith(("http://", "https://", "//")):
                 errors.append(f"External runtime asset prevents full offline use: {html_file.relative_to(ROOT)} -> {reference}")
                 continue
@@ -117,12 +180,16 @@ def main() -> int:
                 errors.append(f"Missing built asset: {html_file.relative_to(ROOT)} -> {reference}")
 
     built_pages = [
+        "assistant/index.html",
         "getting-started/environment.html",
         "getting-started/first-project.html",
         "courses/gpio.html",
         "courses/exti.html",
         "courses/uart.html",
         "courses/tim-pwm.html",
+        "courses/adc-dma.html",
+        "courses/i2c.html",
+        "courses/spi.html",
         "tracks/beginner.html",
         "tracks/advanced.html",
         "tracks/expert.html",
@@ -132,7 +199,9 @@ def main() -> int:
         "projects/index.html",
         "projects/led-button.html",
         "projects/uart-console.html",
+        "projects/data-logger.html",
         "resources/index.html",
+        "resources/f103-official-docs.html",
         "about/lesson-template.html",
         "about/maintenance.html",
     ]
@@ -148,7 +217,10 @@ def main() -> int:
 
     markdown_count = len(list(DOCS.rglob("*.md")))
     actual_lessons = {lesson_id for lesson_id in lesson_ids if lesson_id in expected_lessons}
-    print(f"Site verification passed: {markdown_count} pages, {len(actual_lessons)} learning lessons, all runtime assets local.")
+    print(
+        f"Site verification passed: {markdown_count} pages, "
+        f"{len(actual_lessons)} tracked lessons and projects, local site assets present."
+    )
     return 0
 
 

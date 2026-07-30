@@ -97,7 +97,16 @@ while (1)
 
 把延时分别改为 10 ms 和 500 ms，观察 `loop_count` 的增长速度；然后尝试设置条件断点 `loop_count == 10`。
 
+## 官方资料与核对路径
+
+| 文档 | 本课用途 |
+|---|---|
+| [UM2553 · STM32CubeIDE quick start guide](https://www.st.com/resource/en/user_manual/um2553-stm32cubeide-quick-start-guide-stmicroelectronics.pdf) | 创建、构建和调试第一个工程 |
+| [UM2576 · STM32CubeIDE ST-LINK GDB server](https://www.st.com/resource/en/user_manual/dm00613038-stm32cubeide-st-link-gdb-server-stmicroelectronics.pdf) | 查询连接模式、复位方式和调试日志 |
+| [STM32CubeF1 官方仓库](https://github.com/STMicroelectronics/STM32CubeF1) | 核对 HAL、CMSIS 和官方板卡示例的目录结构 |
+
+使用 F103C8T6 时，还应从 [官方资料索引](../resources/f103-official-docs.md)确认 DS5319、RM0008 和 ES096。
+
 ## 下一步
 
 [使用 GPIO 控制真实引脚 →](../courses/gpio.md)
-

@@ -115,7 +115,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 - 用按键在 25%、50%、75% 三档占空比之间切换。
 - 不进入中断，仅靠硬件 PWM 输出稳定波形，同时用 UART 打印主循环计数。
 
+## 官方资料与核对路径
+
+| 文档 | 建议核对内容 |
+|---|---|
+| [RM0008 · STM32F1 Reference Manual](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) | `General-purpose timers`、计数时钟、预分频、ARR、PWM mode |
+| [AN4776 · General-purpose timer](https://www.st.com/resource/en/application_note/an4776-generalpurpose-timer-cookbook-for-stm32-microcontrollers-stmicroelectronics.pdf) | 定时器基本结构、时钟源、预装载和典型应用 |
+| [DS5319 · STM32F103x8/xB Data Sheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf) | 定时器通道的引脚复用和输出时序限制 |
+
+使用其他 STM32 系列时，必须重新核对 APB 与定时器时钟关系。
+
 ## 下一步
 
-[完成 LED 与按键控制器项目 →](../projects/led-button.md)
-
+[使用 ADC 与 DMA 连续采样 →](adc-dma.md)

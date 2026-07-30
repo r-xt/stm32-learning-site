@@ -1,5 +1,7 @@
 # 项目 2 · 串口命令行终端
 
+<div class="lesson-progress" data-lesson-id="project-uart-console" data-lesson-title="项目：串口命令行终端"></div>
+
 ## 项目目标
 
 实现一个最小但可靠的命令行终端：
@@ -131,4 +133,3 @@ static const Command commands[] = {
 - 用 DMA + Idle Line 接收替代单字节中断。
 - 为输出增加非阻塞 TX 队列。
 - 为配置命令增加范围检查和持久化，并实现 `factory-reset`。
-

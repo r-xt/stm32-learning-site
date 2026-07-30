@@ -72,11 +72,14 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/progress.js
+  - assets/javascripts/assistant-data.js
+  - assets/javascripts/assistant.js
 
 copyright: 本地学习站 · 内容以对应芯片的最新官方文档为准
 
 nav:
   - 首页: index.md
+  - 本地知识助手: assistant/index.md
   - 开始学习:
       - 学习入口: getting-started/index.md
       - 01 · 环境搭建: getting-started/environment.md
@@ -87,6 +90,9 @@ nav:
       - 04 · EXTI 外部中断: courses/exti.md
       - 05 · UART 串口通信: courses/uart.md
       - 06 · TIM 与 PWM: courses/tim-pwm.md
+      - 07 · ADC 与 DMA 采样: courses/adc-dma.md
+      - 08 · I²C 传感器通信: courses/i2c.md
+      - 09 · SPI 与外部器件: courses/spi.md
   - 学习路线:
       - 路线总览: tracks/index.md
       - 入门: tracks/beginner.md
@@ -98,9 +104,12 @@ nav:
       - 开发工具: boards/tools.md
   - 项目实战:
       - 项目索引: projects/index.md
-      - LED 与按键控制器: projects/led-button.md
-      - 串口命令行终端: projects/uart-console.md
-  - 资源中心: resources/index.md
+      - 项目 1 · LED 与按键控制器: projects/led-button.md
+      - 项目 2 · 串口命令行终端: projects/uart-console.md
+      - 项目 3 · 多外设数据记录器: projects/data-logger.md
+  - 资源中心:
+      - 资源入口: resources/index.md
+      - F103C8T6 官方资料索引: resources/f103-official-docs.md
   - 维护:
       - 课程模板: about/lesson-template.md
       - 维护说明: about/maintenance.md

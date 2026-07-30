@@ -106,7 +106,16 @@ if (button_event)
 - 统计有效按键次数，并在调试器 Watch 窗口观察。
 - 实现短按切换 LED、长按恢复默认状态；中断仍只负责产生事件。
 
+## 官方资料与核对路径
+
+| 文档 | 建议核对内容 |
+|---|---|
+| [RM0008 · STM32F1 Reference Manual](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) | `Interrupts and events`、EXTI 线路映射和触发寄存器 |
+| [PM0056 · Cortex-M3 Programming Manual](https://www.st.com/resource/en/programming_manual/cd00228163-stm32f10xxx20xxx21xxxl1xxxx-cortexm3-programming-manual-stmicroelectronics.pdf) | `Exceptions and interrupts`、NVIC 和优先级分组 |
+| [STM32CubeF1 官方仓库](https://github.com/STMicroelectronics/STM32CubeF1) | 在 `Projects/.../Examples/GPIO` 中核对官方中断示例 |
+
+芯片限制仍需同时查看 [ES096](https://www.st.com/resource/en/errata_sheet/es096-stm32f101x8b-stm32f102x8b-and-stm32f103x8b-mediumdensity-device-limitations-stmicroelectronics.pdf)。
+
 ## 下一步
 
 [用 UART 建立可见的调试通道 →](uart.md)
-

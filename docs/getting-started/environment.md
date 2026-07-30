@@ -71,6 +71,16 @@ description: 安装 STM32CubeIDE，确认 ST-LINK 和开发板连接
 - 收藏对应的 User Manual、Data Sheet 和 Reference Manual 页面。
 - 在 CubeIDE 中找到编译、运行、调试和停止按钮，但暂时不要创建复杂工程。
 
+## 官方资料与核对路径
+
+| 文档 | 本课用途 |
+|---|---|
+| [UM2563 · STM32CubeIDE installation guide](https://www.st.com/resource/en/user_manual/dm00603964-stm32cubeide-stmicroelectronics.pdf) | 按操作系统核对安装要求与步骤 |
+| [UM2553 · STM32CubeIDE quick start guide](https://www.st.com/resource/en/user_manual/um2553-stm32cubeide-quick-start-guide-stmicroelectronics.pdf) | 认识工作区、工程、构建和调试入口 |
+| [UM2609 · STM32CubeIDE user guide](https://www.st.com/resource/en/user_manual/um2609-stm32cubeide-user-guide-stmicroelectronics.pdf) | 遇到界面或调试配置问题时查询完整说明 |
+
+资料编号和版本核验方法见 [STM32F103C8T6 官方资料索引](../resources/f103-official-docs.md)。
+
 ## 下一步
 
 [创建第一个可调试工程 →](first-project.md)

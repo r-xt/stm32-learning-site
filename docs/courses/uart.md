@@ -102,7 +102,16 @@ if (rx_ready)
 - 为接收函数的返回值添加检查；若启动失败，通过 LED 或调试变量报告错误。
 - 记录一帧 UART 的理论传输时间：115200、8-N-1 下一个字节通常占 10 bit。
 
+## 官方资料与核对路径
+
+| 文档 | 建议核对内容 |
+|---|---|
+| [RM0008 · STM32F1 Reference Manual](https://www.st.com/resource/en/reference_manual/cd00171190-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) | `Universal synchronous asynchronous receiver transmitter`、波特率和状态标志 |
+| [DS5319 · STM32F103x8/xB Data Sheet](https://www.st.com/resource/en/datasheet/stm32f103c8.pdf) | USART 引脚复用和电气特性 |
+| [STM32CubeF1 官方仓库](https://github.com/STMicroelectronics/STM32CubeF1) | 在 `Projects/.../Examples/UART` 中核对轮询、中断和 DMA 示例 |
+
+如果调试连接本身失败，使用 [UM2576](https://www.st.com/resource/en/user_manual/dm00613038-stm32cubeide-st-link-gdb-server-stmicroelectronics.pdf) 查询 GDB Server 的连接与复位选项。
+
 ## 下一步
 
 [用硬件定时器产生稳定节拍与 PWM →](tim-pwm.md)
-

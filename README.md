@@ -1,6 +1,6 @@
 # STM32 学习站
 
-一个可在 Windows 本地运行、构建后可离线浏览的 STM32 中文学习网站。内容从环境搭建、GPIO、EXTI、UART、TIM/PWM 开始，并提供学习路线、板卡工具、两个项目指南和浏览器本地进度记录。
+一个可在 Windows 本地运行、构建后可离线浏览的 STM32 中文学习网站。内容从环境搭建、GPIO、EXTI、UART、TIM/PWM 延伸到 ADC/DMA、I²C 和 SPI，并提供学习路线、板卡工具、三个项目指南、浏览器本地进度记录和 STM32 本地知识助手。
 
 ## 最快启动（Windows）
 
@@ -39,15 +39,16 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\serve.ps1
 
 ## 学习内容
 
-- 6 篇入门课程：环境、第一个工程、GPIO、EXTI、UART、TIM/PWM；
-- 2 个项目指南：LED 与按键控制器、串口命令行终端；
+- 9 篇连续课程：环境、第一个工程、GPIO、EXTI、UART、TIM/PWM、ADC/DMA、I²C、SPI；
+- 3 个项目指南：LED 与按键控制器、串口命令行终端、多外设数据记录器；
 - 入门、进阶、专家、大师四级路线；
 - 板卡选择、工具说明、官方资源与课程模板；
-- 本地学习进度、JSON 导出和导入。
+- 12 项学习进度仪表盘、下一项建议、JSON 导出和导入；
+- 全站 STM32 本地知识助手，覆盖常见外设、调试、C 语言和计算机基础问题；
+- 助手基于本地知识库运行，无需 API 密钥，对话不会发送到服务器。
 
 ## 维护
 
 源内容位于 `docs/`，导航和主题配置位于 `mkdocs.yml`。不要编辑自动生成的 `site/`。新增课程前阅读网站内的“维护 → 课程模板”和“维护说明”。
 
 详细研究背景保留在 `deep-research-report.md`，它不是网站运行依赖。
-

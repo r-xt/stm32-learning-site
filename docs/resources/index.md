@@ -4,6 +4,7 @@
 
 ## ST 官方入口
 
+- [STM32F103C8T6 官方资料索引](f103-official-docs.md)：本站课程使用的 DS5319、RM0008、PM0056、ES096 与专题应用笔记
 - [STM32 32 位 MCU 产品与文档入口](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html)
 - [STM32Cube 软件生态](https://www.st.com/stm32cube)
 - [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html)
@@ -40,4 +41,3 @@
 
 !!! warning "资料会更新"
     工具版本、芯片状态、勘误和安全建议会变化。开始新项目或准备量产时，应重新访问产品页确认最新文档，而不是只依赖本地旧副本。
-

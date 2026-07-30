@@ -1,5 +1,7 @@
 # 项目 1 · LED 与按键控制器
 
+<div class="lesson-progress" data-lesson-id="project-led-button" data-lesson-title="项目：LED 与按键控制器"></div>
+
 ## 项目目标
 
 用一个按键控制 LED 的三种模式，并保持主循环非阻塞：
@@ -125,4 +127,3 @@ static void Led_Update(LedMode mode, uint32_t now)
 - 通过 UART 打印模式变化，但不要在中断中发送。
 - 将当前模式写入 Flash，并考虑写入寿命、校验和断电一致性。
 - 增加双击事件，明确它对单击响应延迟的影响。
-
