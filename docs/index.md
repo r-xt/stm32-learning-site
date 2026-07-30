@@ -67,6 +67,35 @@ hide:
 
 </div>
 
+## 今日文章
+
+<div class="card-grid" markdown>
+
+<div class="card" markdown>
+### STM32F103C8T6 故障排查
+连接失败、串口乱码、ADC 抖动、I²C 无应答和 PWM 频率错误，都按可测量的顺序定位。
+
+[阅读全文](articles/stm32f103c8t6-common-problems.md)
+</div>
+
+<div class="card" markdown>
+### 2026 年 AI 发展趋势
+从智能体协议、多模态和编程智能体，到端侧 AI 与机器人，区分已落地能力和仍需验证的部分。
+
+[阅读全文](articles/ai-trends-2026.md)
+</div>
+
+<div class="card" markdown>
+### 计算机学习创作者
+按嵌入式、计算机基础、数学和 AI 分类，推荐可核验的课程与创作者主页。
+
+[阅读全文](articles/computer-learning-creators.md)
+</div>
+
+</div>
+
+[查看全部技术文章](articles/index.md){ .md-button }
+
 ## 第一阶段课程
 
 ```mermaid

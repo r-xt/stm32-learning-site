@@ -32,6 +32,10 @@ REQUIRED = [
     "projects/led-button.md",
     "projects/uart-console.md",
     "projects/data-logger.md",
+    "articles/index.md",
+    "articles/stm32f103c8t6-common-problems.md",
+    "articles/ai-trends-2026.md",
+    "articles/computer-learning-creators.md",
     "resources/index.md",
     "resources/f103-official-docs.md",
 ]
@@ -150,6 +154,18 @@ def main() -> int:
     if assistant_data.count("https://www.st.com/") < 10:
         errors.append("Assistant knowledge base has too few traceable ST official links")
 
+    dated_articles = [
+        "articles/stm32f103c8t6-common-problems.md",
+        "articles/ai-trends-2026.md",
+        "articles/computer-learning-creators.md",
+    ]
+    for relative in dated_articles:
+        text = (DOCS / relative).read_text(encoding="utf-8")
+        if "发布日期：2026 年 7 月 30 日" not in text:
+            errors.append(f"Article publication date missing: docs/{relative}")
+        if text.count("https://") < 3:
+            errors.append(f"Article has too few traceable sources: docs/{relative}")
+
     if not (SITE / "index.html").is_file():
         errors.append("Offline homepage missing: site/index.html")
     if not any(SITE.glob("search/search_index.*")):
@@ -200,6 +216,10 @@ def main() -> int:
         "projects/led-button.html",
         "projects/uart-console.html",
         "projects/data-logger.html",
+        "articles/index.html",
+        "articles/stm32f103c8t6-common-problems.html",
+        "articles/ai-trends-2026.html",
+        "articles/computer-learning-creators.html",
         "resources/index.html",
         "resources/f103-official-docs.html",
         "about/lesson-template.html",

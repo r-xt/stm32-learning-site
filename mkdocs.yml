@@ -107,6 +107,11 @@ nav:
       - 项目 1 · LED 与按键控制器: projects/led-button.md
       - 项目 2 · 串口命令行终端: projects/uart-console.md
       - 项目 3 · 多外设数据记录器: projects/data-logger.md
+  - 技术文章:
+      - 文章首页: articles/index.md
+      - STM32F103C8T6 常见问题: articles/stm32f103c8t6-common-problems.md
+      - 2026 年 AI 发展趋势: articles/ai-trends-2026.md
+      - 计算机学习创作者推荐: articles/computer-learning-creators.md
   - 资源中心:
       - 资源入口: resources/index.md
       - F103C8T6 官方资料索引: resources/f103-official-docs.md
