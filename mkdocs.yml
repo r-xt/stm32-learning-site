@@ -139,6 +139,28 @@ nav:
           - 25 · RS485 通信: experiments/25-rs485.md
           - 26 · CAN 通信: experiments/26-can.md
           - 27 · 芯片 UID 与程序绑定: experiments/27-uid-binding.md
+  - RTOS 实验:
+      - 实验总览与资料勘误: rtos-experiments/index.md
+      - 移植与任务:
+          - 01 · 移植前基础工程: rtos-experiments/01-porting-foundation.md
+          - 02 · uC/OS-III 移植模板: rtos-experiments/02-port-template.md
+          - 03 · 创建多个任务: rtos-experiments/03-multi-task.md
+          - 04 · 任务生命周期: rtos-experiments/04-task-lifecycle.md
+      - 时间管理:
+          - 05 · 系统时钟节拍: rtos-experiments/05-system-tick.md
+          - 06 · 时间管理: rtos-experiments/06-time-management.md
+          - 07 · 软件定时器: rtos-experiments/07-software-timer.md
+      - 同步与互斥:
+          - 08 · 信号量等待事件: rtos-experiments/08-counting-semaphore-events.md
+          - 09 · 信号量管理资源: rtos-experiments/09-counting-semaphore-resource.md
+          - 10 · 互斥量: rtos-experiments/10-mutex.md
+      - 通信与管理:
+          - 11 · 消息队列: rtos-experiments/11-message-queue.md
+          - 12 · 等待多个内核对象: rtos-experiments/12-multi-pend.md
+          - 13 · 任务信号量: rtos-experiments/13-task-semaphore.md
+          - 14 · 任务消息队列: rtos-experiments/14-task-message-queue.md
+          - 15 · 固定内存分区: rtos-experiments/15-memory-management.md
+          - 16 · 任务寄存器与自挂起: rtos-experiments/16-task-management.md
   - 技术文章:
       - 文章首页: articles/index.md
       - STM32F103C8T6 常见问题: articles/stm32f103c8t6-common-problems.md
@@ -147,6 +169,12 @@ nav:
   - 资源中心:
       - 资源入口: resources/index.md
       - F103C8T6 官方资料索引: resources/f103-official-docs.md
+      - 标准外设库 V3.5: resources/firmware-library-v35.md
+      - Cortex-M3 学习指南: resources/cortex-m3-guide.md
+      - Flash 编程实践: resources/flash-programming-guide.md
+      - CAN 学习指南: resources/can-learning-guide.md
+      - STM32 选型指南: resources/mcu-selection-guide.md
+      - uC/OS 资料库指南: resources/ucos-reference-guide.md
   - 维护:
       - 课程模板: about/lesson-template.md
       - 维护说明: about/maintenance.md

@@ -120,6 +120,30 @@ hide:
 
 </div>
 
+## uC/OS-III 实时系统实验
+
+<div class="assistant-intro" markdown>
+
+<div markdown>
+
+### 16 个工程逐篇拆解
+
+从移植模板、多任务与系统节拍开始，继续学习软件定时器、信号量、互斥量、消息队列、固定内存分区和任务管理。每篇都根据原始 STM32F103ZE 工程核对 API、时基和源码问题。
+
+[进入 RTOS 实验](rtos-experiments/index.md){ .md-button .md-button--primary }
+
+</div>
+
+<div class="assistant-intro__status" markdown>
+
+**资料审计**
+
+实验 11 和 15 的压缩包内容重复错误，实验 7 的定时器时基注释也有误；对应文章已明确标出，并给出正确实现框架。
+
+</div>
+
+</div>
+
 ## 第一阶段课程
 
 ```mermaid

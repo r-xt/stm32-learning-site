@@ -2,6 +2,18 @@
 
 学习 STM32 时优先使用原始资料。本站提供学习顺序和解释，不复制分发官方 PDF；离线构建不会把下列外部网站自动保存到本机。
 
+## 本地资料整理成果
+
+这些文章根据你提供的 `3--STM32相关资料` 与 `4--STM32固件库` 整理。原 PDF、书籍和源码包保留在本地，不随公开网站发布。
+
+- [STM32F10x 标准外设库 V3.5 使用指南](firmware-library-v35.md)：目录结构、建工程、驱动添加、常见链接错误与迁移建议。
+- [Cortex-M3 资料学习指南](cortex-m3-guide.md)：用向量表、NVIC、SysTick 和 HardFault 小项目消化内核知识。
+- [STM32F10x Flash 编程实践](flash-programming-guide.md)：参数页、擦写、校验、掉电安全和磨损均衡。
+- [CAN 资料与实操指南](can-learning-guide.md)：把通用 CAN 协议知识落到 STM32 双节点实验。
+- [STM32 选型资料使用指南](mcu-selection-guide.md)：说明 2015 旧手册的用途和当前选型核对流程。
+- [uC/OS 资料库阅读与版本指南](ucos-reference-guide.md)：区分 II/III、版本、端口、配置和许可。
+- [uC/OS-III 16 个独立实验](../rtos-experiments/index.md)：每个项目一篇实现与排错文章。
+
 ## ST 官方入口
 
 - [STM32F103C8T6 官方资料索引](f103-official-docs.md)：本站课程使用的 DS5319、RM0008、PM0056、ES096 与专题应用笔记

@@ -42,6 +42,35 @@ EXPERIMENT_PAGES = [
     "experiments/27-uid-binding.md",
 ]
 
+RTOS_EXPERIMENT_PAGES = [
+    "rtos-experiments/index.md",
+    "rtos-experiments/01-porting-foundation.md",
+    "rtos-experiments/02-port-template.md",
+    "rtos-experiments/03-multi-task.md",
+    "rtos-experiments/04-task-lifecycle.md",
+    "rtos-experiments/05-system-tick.md",
+    "rtos-experiments/06-time-management.md",
+    "rtos-experiments/07-software-timer.md",
+    "rtos-experiments/08-counting-semaphore-events.md",
+    "rtos-experiments/09-counting-semaphore-resource.md",
+    "rtos-experiments/10-mutex.md",
+    "rtos-experiments/11-message-queue.md",
+    "rtos-experiments/12-multi-pend.md",
+    "rtos-experiments/13-task-semaphore.md",
+    "rtos-experiments/14-task-message-queue.md",
+    "rtos-experiments/15-memory-management.md",
+    "rtos-experiments/16-task-management.md",
+]
+
+LOCAL_RESOURCE_GUIDES = [
+    "resources/firmware-library-v35.md",
+    "resources/cortex-m3-guide.md",
+    "resources/flash-programming-guide.md",
+    "resources/can-learning-guide.md",
+    "resources/mcu-selection-guide.md",
+    "resources/ucos-reference-guide.md",
+]
+
 REQUIRED = [
     "index.md",
     "assistant/index.md",
@@ -69,7 +98,7 @@ REQUIRED = [
     "articles/computer-learning-creators.md",
     "resources/index.md",
     "resources/f103-official-docs.md",
-] + EXPERIMENT_PAGES
+] + EXPERIMENT_PAGES + RTOS_EXPERIMENT_PAGES + LOCAL_RESOURCE_GUIDES
 
 LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 LESSON_RE = re.compile(r'data-lesson-id="([^"]+)"')
@@ -208,6 +237,17 @@ def main() -> int:
         if "https://www.st.com/" not in text:
             errors.append(f"Experiment official ST reference missing: docs/{relative}")
 
+    for relative in RTOS_EXPERIMENT_PAGES[1:]:
+        text = (DOCS / relative).read_text(encoding="utf-8")
+        if "## 操作步骤" not in text:
+            errors.append(f"RTOS experiment operation steps missing: docs/{relative}")
+        if "## 常见问题" not in text:
+            errors.append(f"RTOS experiment troubleshooting missing: docs/{relative}")
+        if "## 专业名词" not in text:
+            errors.append(f"RTOS experiment glossary missing: docs/{relative}")
+        if "https://docs.silabs.com/" not in text:
+            errors.append(f"RTOS official reference missing: docs/{relative}")
+
     if not (SITE / "index.html").is_file():
         errors.append("Offline homepage missing: site/index.html")
     if not any(SITE.glob("search/search_index.*")):
@@ -266,7 +306,7 @@ def main() -> int:
         "resources/f103-official-docs.html",
         "about/lesson-template.html",
         "about/maintenance.html",
-    ] + [page.replace(".md", ".html") for page in EXPERIMENT_PAGES]
+    ] + [page.replace(".md", ".html") for page in EXPERIMENT_PAGES + RTOS_EXPERIMENT_PAGES + LOCAL_RESOURCE_GUIDES]
     for relative in built_pages:
         if not (SITE / relative).is_file():
             errors.append(f"Built page missing: site/{relative}")
